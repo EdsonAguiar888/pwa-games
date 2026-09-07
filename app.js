@@ -1,6 +1,9 @@
 
 const API = "https://www.gamerpower.com/api/giveaways"; // gamerpower api   
 
+const installBtn = document.querySelector("#installBtn");
+let deferredPrompt;
+
 
 async function carregarJogos() {
 
@@ -63,5 +66,14 @@ installBtn.addEventListener("click", async () => {
 
     deferredPrompt = null;
     installBtn.classList.add("hidden");
-});
 
+
+
+
+    // Captura o evento de instalação concluída
+    window.addEventListener('appinstalled', (event) => {
+        console.log('PWA instalado com sucesso!', event);
+    });
+
+
+});

@@ -1,67 +1,101 @@
+body {
+    margin: 0;
+    font: 16px arial;
+    background: #181857;
+    color: #fff;
+}
 
-        body {
-            margin: 0;
-            font: 16px arial;
-            background: #181857;
-            color: #fff;
-        }
+header {
+    padding: 24px;
+    text-align: center;
+    padding: 20px;
+}
 
-        header {
-            padding: 24px;
-            text-align: center;
-            padding: 20px;
-        }
+nav {
+    text-align: left;
+}
 
-        nav {
-            text-align: left;
-        }
+main {
+    max-width: 950px;
+    margin: auto;
+    padding: 20px;
+}
 
-        main {
-            max-width: 950px;
-            margin: auto;
-            padding: 20px;
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, mimax(180px, 1fr));
+    gap: 16px;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, mimax(180px, 1fr));
-            gap: 16px;
-        }
+.game {
+    overflow: hidden;
+    background: #31316e;
+    border-radius: 18px;
+}
 
-        .game {
-            overflow: hidden;
-            background: #31316e;
-            border-radius: 18px;
-        }
+button,
+.button {
+    border: 0;
+    border-radius: 12px;
+    padding: 11px 16px;
+    background: #b9cbec;
+    color: #484bff;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px;
+    transition: .2s;
+}
 
-        @media (max-width: 520px) {
-            header {
-                text-align: left;
-            }
-
-            .grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
+button:hover,
+.button:hover {
+    background: #484bff;
+    color: #b9cbec;
+}
 
 
-        @media (min-width: 520px) and (max-width: 1025px) {
-            header {
-                text-align: center;
-            }
 
-            .grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
+.secondary:hover {
+    background: #dfeaff;
+}
 
-        @media (min-width: 1025px) {
-            header {
-                text-align: center;
-            }
+.hidden {
+    display: none;
+}
 
-            .grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-  
+
+
+
+
+@media (max-width: 520px) {
+    header {
+        text-align: left;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@media (min-width: 520px) and (max-width: 1025px) {
+    header {
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (min-width: 1025px) {
+    header {
+        text-align: center;
+    }
+
+    .grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
