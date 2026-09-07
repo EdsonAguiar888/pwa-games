@@ -16,7 +16,7 @@ async function carregarJogos() {
     grid.innerHTML = jogos.map(jogo => `
                 
         <article class="game">
-            <img src="${jogo.thumbnail}" alt="${jogo.thumbnail}"  width="180" height="150" loading="lazy" decoding="async">
+            <img src="${jogo.thumbnail}" alt="${jogo.thumbnail}"   loading="lazy" decoding="async">
             <h3>${jogo.title}</h3>
         </article>
     
