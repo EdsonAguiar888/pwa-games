@@ -1,7 +1,7 @@
 
 
 
-const CACHE = "pwa-v1";
+const CACHE = "pwa-v2";
 
 const FILES = [
   "./",
