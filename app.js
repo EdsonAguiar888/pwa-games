@@ -77,3 +77,260 @@ installBtn.addEventListener("click", async () => {
 
 
 });
+
+
+
+// -------------------------
+// Funcionalidade hardware
+// Buscar jogo
+// -------------------------
+
+
+
+
+
+let jogos = [];
+
+// Carrega a API em segundo plano
+fetch(API)
+    .then(res => res.json())
+    .then(data => { jogos = data; });
+
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+function iniciarBuscaPorVoz() {
+    if (!SpeechRecognition) {
+        alert("Seu navegador não suporta busca por voz.");
+        return;
+    }
+
+    const reconhecimento = new SpeechRecognition();
+    reconhecimento.lang = "pt-BR";
+
+    const btnVoz = document.getElementById("btnVoz");
+    const resultado = document.getElementById("resultado");
+
+    // 1. Muda o texto IMEDIATAMENTE ao clicar no botão
+    btnVoz.innerText = "🔴 Ouvindo...";
+    resultado.innerHTML = "<p><i>Escutando... Pode falar o nome do jogo.</i></p>";
+
+    reconhecimento.start();
+
+    // 2. Quando reconhecer a fala
+    reconhecimento.onresult = (event) => {
+        const nomeFalado = event.results[0][0].transcript;
+        document.getElementById("busca").value = nomeFalado;
+        buscarJogo(nomeFalado);
+    };
+
+    // 3. Quando a gravação parar (por término ou erro)
+    reconhecimento.onend = () => {
+        btnVoz.innerText = "🎤 Voz";
+    };
+
+    // 4. Caso aconteça erro de permissão do microfone
+    reconhecimento.onerror = (event) => {
+        btnVoz.innerText = "🎤 Voz";
+        if (event.error === "not-allowed") {
+            resultado.innerHTML = "<p>Permissão do microfone foi negada.</p>";
+        } else {
+            resultado.innerHTML = "<p>Não entendi o que você falou. Tente de novo.</p>";
+        }
+    };
+  
+}
+
+// Função de busca
+function buscarJogo(nome) {
+    const termo = nome || document.getElementById("busca").value;
+
+    if (!termo.trim()) return;
+
+    const jogo = jogos.find(j =>
+        j.title.toLowerCase().includes(termo.toLowerCase())
+    );
+
+    const resultado = document.getElementById("resultado");
+
+    if (!jogo) {
+        resultado.innerHTML = "<p>Jogo não encontrado</p>";
+        return;
+    }
+
+    resultado.innerHTML = `
+        <h2>${jogo.title.replace(" Giveaway", "")}</h2>
+        <img src="${jogo.image || jogo.thumbnail}" width="200" alt="${jogo.title}">
+    `;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let jogos = [];
+
+// // Carrega os jogos da API
+// fetch(API)
+//     .then(res => res.json())
+//     .then(data => {
+//         jogos = data;
+//     });
+
+// // Configuração do reconhecimento de voz
+// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// let reconhecimento = null;
+
+// if (SpeechRecognition) {
+//     reconhecimento = new SpeechRecognition();
+//     reconhecimento.lang = "pt-BR";
+
+//     // 1. Quando começa a ouvir a voz
+//     reconhecimento.onstart = () => {
+//         const btnVoz = document.getElementById("btnVoz");
+//         const resultado = document.getElementById("resultado");
+
+//         btnVoz.classList.add("gravando");
+//         btnVoz.innerText = "🔴 Gravando...";
+//         resultado.innerHTML = "<p><i>Ouvindo... Fale o nome do jogo.</i></p>";
+//     };
+
+//     // 2. Quando o usuário termina de falar e gera o resultado
+//     reconhecimento.onresult = (event) => {
+//         const nomeFalado = event.results[0][0].transcript;
+//         document.getElementById("busca").value = nomeFalado;
+//         buscarJogo(nomeFalado);
+//     };
+
+//     // 3. Quando a captura de voz encerra (por sucesso ou silêncio)
+//     reconhecimento.onend = () => {
+//         const btnVoz = document.getElementById("btnVoz");
+//         btnVoz.classList.remove("gravando");
+//         btnVoz.innerText = "🎤 Voz";
+//     };
+
+//     // 4. Caso aconteça algum erro de permissão ou captura
+//     reconhecimento.onerror = () => {
+//         document.getElementById("resultado").innerHTML = "<p>Não entendi o que você falou. Tente novamente.</p>";
+//     };
+// }
+
+// function iniciarBuscaPorVoz() {
+//     if (reconhecimento) {
+//         reconhecimento.start();
+//     } else {
+//         alert("Navegador não suporta busca por voz.");
+//     }
+// }
+
+// // Função de busca
+// function buscarJogo(nome) {
+//     const termo = nome || document.getElementById("busca").value;
+
+//     if (!termo.trim()) return;
+
+//     const jogo = jogos.find(j =>
+//         j.title.toLowerCase().includes(termo.toLowerCase())
+//     );
+
+//     const resultado = document.getElementById("resultado");
+
+//     if (!jogo) {
+//         resultado.innerHTML = "<p>Jogo não encontrado</p>";
+//         return;
+//     }
+
+//     resultado.innerHTML = `
+//         <h2>${jogo.title.replace(" Giveaway", "")}</h2>
+//         <img src="${jogo.image || jogo.thumbnail}" width="200" alt="${jogo.title}">
+//     `;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let jogos = [];
+
+// // Carrega os jogos da API
+// fetch(API)
+//     .then(res => res.json())
+//     .then(data => {
+//         jogos = data;
+//     });
+
+// // Configuração do reconhecimento de voz
+// const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// let reconhecimento = null;
+
+// if (SpeechRecognition) {
+//     reconhecimento = new SpeechRecognition();
+//     reconhecimento.lang = "pt-BR";
+
+//     reconhecimento.onresult = (event) => {
+//         const nomeFalado = event.results[0][0].transcript;
+//         document.getElementById("busca").value = nomeFalado; // Preenche o campo de busca
+//         buscarJogo(nomeFalado); // Dispara a pesquisa com o texto reconhecido
+//     };
+// }
+
+// function iniciarBuscaPorVoz() {
+//     if (reconhecimento) {
+//         reconhecimento.start();
+//     } else {
+//         alert("Navegador não suporta busca por voz.");
+//     }
+// }
+
+// // Função de busca por texto ou parâmetro de voz
+// function buscarJogo(nome) {
+//     // Pega o valor do parâmetro (se veio da voz) ou do input de busca
+//     const termo = nome || document.getElementById("busca").value;
+
+//     if (!termo.trim()) return;
+
+//     const jogo = jogos.find(j =>
+//         j.title.toLowerCase().includes(termo.toLowerCase())
+//     );
+
+//     const resultado = document.getElementById("resultado");
+
+//     if (!jogo) {
+//         resultado.innerHTML = "<p>Jogo não encontrado</p>";
+//         return;
+//     }
+
+//     resultado.innerHTML = `
+//         <h2>${jogo.title.replace(" Giveaway", "")}</h2>
+//         <img src="${jogo.image || jogo.thumbnail}" width="200" alt="${jogo.title}">
+//     `;
+// }
