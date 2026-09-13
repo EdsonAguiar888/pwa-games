@@ -21,30 +21,23 @@
 
             <h2>Escolha seu jogo...</h2>
 
+            <div class="search-box">
+                <input
+                    type="search"
+                    id="busca"
+                    placeholder="Digite ou fale o nome do jogo...">
+                <button type="button" onclick="buscarJogo()">
+                    🔎 Buscar
+                </button>
+                <button type="button" id="btnVoz"
+                    onclick="iniciarBuscaPorVoz()">
+                    🎤 Voz
+                </button>
+            </div>
 
+            <div id="resultado" class="resultado"></div>
 
-<div class="search-box">
-    <input 
-        type="search" 
-        id="busca" 
-        placeholder="Digite ou fale o nome do jogo..."
-    >
-    <button type="button" onclick="buscarJogo()">
-        🔎 Buscar
-    </button>
-    <button type="button" id="btnVoz" onclick="iniciarBuscaPorVoz()">
-        🎤 Voz
-    </button>
-</div>
-
-<div id="resultado" class="resultado"></div>
-
-
-
-
-
-
-<!-- 
+            <!-- 
 
 
             <div class="search-box">
@@ -75,8 +68,6 @@
             <div id="resultado"></div>
 
  -->
-
-
 
             <button id="installBtn" class="btnInstal hidden"> Instalar
                 app</button>
