@@ -1,4 +1,5 @@
 
+
 const API = "https://www.gamerpower.com/api/giveaways"; // gamerpower api   
 
 const installBtn = document.querySelector("#installBtn");
@@ -69,13 +70,10 @@ installBtn.addEventListener("click", async () => {
 
 
 
-
     // Captura o evento de instalação concluída
     window.addEventListener('appinstalled', (event) => {
         console.log('PWA instalado com sucesso!', event);
     });
-
-
 });
 
 
@@ -84,10 +82,6 @@ installBtn.addEventListener("click", async () => {
 // Funcionalidade hardware
 // Buscar jogo
 // -------------------------
-
-
-
-
 
 let jogos = [];
 
@@ -137,7 +131,7 @@ function iniciarBuscaPorVoz() {
             resultado.innerHTML = "<p>Não entendi o que você falou. Tente de novo.</p>";
         }
     };
-  
+
 }
 
 // Função de busca

@@ -1,3 +1,5 @@
+
+
 body {
     margin: 0;
     font: 16px arial;
@@ -109,10 +111,6 @@ button:hover,
 
 
 
-
-
-
-
 /* Layout da caixa de busca */
 .search-box {
     display: flex;
@@ -170,6 +168,7 @@ button:hover,
         flex-direction: column;
     }
 }
+
 
 
 

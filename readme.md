@@ -4,7 +4,7 @@ Essa aplicação trata-se de uma aplicação Progressive Web App (PWA), desenvol
 
 ## 🚀 Link do Aplicativo para instalação
 
-
+https://pwa-gamer.netlify.app/
 
 ---
 

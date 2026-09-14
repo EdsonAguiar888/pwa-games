@@ -1,51 +1,30 @@
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Games</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
 
-        <link rel="manifest" href="manifest.json">
-        <link rel="icon" href="icons/icon-192.png">
-        <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/icon-192.png">
+    <link rel="stylesheet" href="style.css">
 
-    </head>
+</head>
 
-    <body>
+<body>
 
-        <header>
-            <nav>
-                <h1>App Games</h1>
-            </nav>
+    <header>
+        <nav>
+            <h1>App Games</h1>
+        </nav>
 
-            <h2>Escolha seu jogo...</h2>
+        <h2>Escolha seu jogo...</h2>
 
-            <div class="search-box">
-                <input
-                    type="search"
-                    id="busca"
-                    placeholder="Digite ou fale o nome do jogo...">
-                <button type="button" onclick="buscarJogo()">
-                    🔎 Buscar
-                </button>
-                <button type="button" id="btnVoz"
-                    onclick="iniciarBuscaPorVoz()">
-                    🎤 Voz
-                </button>
-            </div>
-
-            <div id="resultado" class="resultado"></div>
-
-            <!-- 
-
-
-            <div class="search-box">
-            <input 
-                type="search" 
-                id="busca" 
-                placeholder="Digite ou fale o nome do jogo..."
-            >
+        <div class="search-box">
+            <input type="search" id="busca" placeholder="Digite ou fale o nome do jogo...">
             <button type="button" onclick="buscarJogo()">
                 🔎 Buscar
             </button>
@@ -54,34 +33,22 @@
             </button>
         </div>
 
-        <div id="resultado" class="resultado"></div> -->
+        <div id="resultado" class="resultado"></div>
 
-            <!-- <input
-                type="search"
-                id="busca"
-                placeholder="Digite ou fale o nome do jogo">
 
-            <button onclick="iniciarBuscaPorVoz()">
-                🎤 Buscar por voz
-            </button>
+        <button id="installBtn" class="btnInstal hidden"> Instalar
+            app</button>
 
-            <div id="resultado"></div>
+        <hr>
+    </header>
 
- -->
+    <main>
+        <div class="grid" id="games">
+            Carregando Jogos........
+        </div>
+    </main>
 
-            <button id="installBtn" class="btnInstal hidden"> Instalar
-                app</button>
-
-            <hr>
-        </header>
-
-        <main>
-            <div class="grid" id="games">
-                Carregando Jogos........
-            </div>
-        </main>
-
-        <script src="app.js"></script>
-    </body>
+    <script src="app.js"></script>
+</body>
 
 </html>
